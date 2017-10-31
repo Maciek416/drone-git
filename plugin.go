@@ -20,7 +20,7 @@ func (p Plugin) Exec() error {
 
 	fmt.Printf("Sleeping for %v before performing fetch...\n\n", sleepytime)
 	time.Sleep(sleepytime)
-	fmt.Printf("Done sleeping.")
+	fmt.Printf("Done sleeping.\n\n")
 
 	if p.Build.Path != "" {
 		err := os.MkdirAll(p.Build.Path, 0777)
