@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"time"
 )
 
 type Plugin struct {
@@ -15,6 +16,12 @@ type Plugin struct {
 }
 
 func (p Plugin) Exec() error {
+	const sleepytime = 10 * time.Second
+
+	fmt.Printf("Sleeping for %v ms before performing fetch...\n\n", sleepytime)
+	time.Sleep(sleepytime)
+	fmt.Printf("Done sleeping.")
+
 	if p.Build.Path != "" {
 		err := os.MkdirAll(p.Build.Path, 0777)
 		if err != nil {
